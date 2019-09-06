@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public int speed;
     Rigidbody ballRigidBody;
 
     // Start is called before the first frame update
@@ -19,14 +20,14 @@ public class BallController : MonoBehaviour
         Debug.Log(Input.GetAxis("Horizontal"));
 
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Inpunt.GetAxis("Vertical");
+        float vertical = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(horizontal, 0, vertical);
 
         //This text is ignored by the computer.
         //Now we add the direction as a force to the Rigidbody
 
-        ballRigidBody.AddForce(direction);
+        ballRigidBody.AddForce(direction * speed);
 
     }
 }
